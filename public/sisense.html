@@ -1,34 +1,31 @@
 <html>
-   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>     
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <script type="text/javascript" src="http://devsisense.myresman.com:8081/js/sisense.js"></script> <!-- replace with your Sisense server address -->
-    <script type = "text/javascript">
- 
-        Sisense.connect('http://devsisense.myresman.com:8081').then(function(app) { 
-          console.log(app)
-          app.dashboards.load('5bcd37594117c40c60b84c48').then(function(dash){ 
-            console.log(dash)
-            console.log('biff1')
-            let container = document.getElementById(
-              'widget1'
-            )
-            console.log(container)
-             let widget = dash.widgets.get('5bcd37594117c40c60b84c49')
-             console.log({widget: widget})
-             widget.container = document.getElementById("widget1")
-             dash.refresh();
-             console.log('biff2')
-          });
-         });
-      </script>
-    </head>
-    <body> 
-       <div id = "sisenseApp">
-            <div class = "Tab1" id = "widget1" style = "height: 400px; width: 35%; float: left; top: 10px; display: inline; margin-top:30px;"></div>            
-       </div>
-   </body>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script type="text/javascript" src="http://devsisense.myresman.com:8081/js/sisense.js"></script>
+  <!-- replace with your Sisense server address -->
+  <script type="text/javascript">
+    Sisense.connect('http://devsisense.myresman.com:8081').then(function (app) {
+      console.log(app)
+      app.dashboards.load('5bcd37594117c40c60b84c48').then(function (dash) {
+        let container = document.getElementById('widget1')
+        console.log(container)
+        let widget = dash.widgets.get('5bcd37594117c40c60b84c49')
+        widget.container = document.getElementById("widget1")
+        dash.refresh();
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <div id="sisenseApp">
+    <div class="Tab1" id="widget1" style="height: 400px; width: 35%; float: left; top: 10px; display: inline; margin-top:30px;"></div>
+  </div>
+</body>
+
 </html>

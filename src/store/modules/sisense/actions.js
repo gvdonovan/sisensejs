@@ -47,14 +47,12 @@ export default {
     document.getElementsByTagName('body')[0].appendChild(script)
   },
 
-  [types.actions.sisense.LOAD_DASHBOARD](context, dashboardId) {    
+  [types.actions.sisense.LOAD_DASHBOARD](context, dashboardId) {
     Vue.$log.debug(`Vuex.actions.dashboard.${types.actions.sisense.LOAD_DASHBOARD}:${dashboardId}`)
-    return new Promise((resolve, reject) => {      
-      context.state.sisense.dashboards.load(dashboardId).then(function(dash) {
-        //dash.widgets.get('5bcd37594117c40c60b84c49').container = document.getElementById('widget-1')
-        console.log(dash)
+    return new Promise((resolve, reject) => {
+      context.state.sisense.dashboards.load(dashboardId).then(function (dash) {
         resolve(dash)
-      })    
+      })
     })
   }
 }

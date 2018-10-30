@@ -47,7 +47,7 @@ export default {
           self.dashboard = dash
           self.$nextTick(() => {
             let widget = dash.widgets.get('5bcd37594117c40c60b84c49')
-            // Both lines 47 &  49 cause the browser to hang indefinitely
+            // Both lines below cause the browser to hang indefinitely
             // The jQuery way
             //widget.container = document.getElementById('widget-1')
             // the Vue way
